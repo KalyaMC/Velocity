@@ -49,11 +49,11 @@ public class KeyedChatHandler implements
   }
 
   public static void invalidCancel(Logger logger, ConnectedPlayer player) {
-    logger.fatal("A plugin tried to cancel a signed chat message."
+    /*logger.fatal("A plugin tried to cancel a signed chat message."
         + " This is no longer possible in 1.19.1 and newer. "
         + "Disconnecting player " + player.getUsername());
     player.disconnect(Component.text("A proxy plugin caused an illegal protocol state. "
-        + "Contact your network administrator."));
+        + "Contact your network administrator."));*/
   }
 
   public static void invalidChange(Logger logger, ConnectedPlayer player) {
@@ -104,9 +104,10 @@ public class KeyedChatHandler implements
     assert playerKey != null;
     return pme -> {
       PlayerChatEvent.ChatResult chatResult = pme.getResult();
-      if (!chatResult.isAllowed()
-          && playerKey.getKeyRevision().compareTo(IdentifiedKey.Revision.LINKED_V2) >= 0) {
-        invalidCancel(logger, player);
+      if (!chatResult.isAllowed()) {
+        if (playerKey.getKeyRevision().compareTo(IdentifiedKey.Revision.LINKED_V2) >= 0) {
+          invalidCancel(logger, player);
+        }
         return null;
       }
 
