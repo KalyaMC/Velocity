@@ -1,12 +1,17 @@
-# Velocity
-
-[![Build Status](https://img.shields.io/jenkins/s/https/ci.velocitypowered.com/job/velocity.svg)](https://ci.velocitypowered.com/job/velocity-3.0.0/)
-[![Join our Discord](https://img.shields.io/discord/289587909051416579.svg?logo=discord&label=)](https://discord.gg/papermc)
+# Velocity-NoChatSigning
 
 A Minecraft server proxy with unparalleled server support, scalability,
 and flexibility.
 
 Velocity is licensed under the GPLv3 license.
+
+## About this fork
+
+This fork removes Velocity's checks that prevent cancelling signed chat
+messages. Velocity have been working super hard at implementing a new
+chat API, but it's not ready yet. When that is ready, you should probably
+use that. I personally don't care about Mojang's new signed chat system,
+though, and this is a quick fix that bypasses their checks.
 
 ## Goals
 
