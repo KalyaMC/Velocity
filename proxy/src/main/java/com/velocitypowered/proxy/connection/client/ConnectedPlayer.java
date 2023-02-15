@@ -137,7 +137,7 @@ public class ConnectedPlayer implements MinecraftConnectionAssociation, Player, 
 
   private static final Logger logger = LogManager.getLogger(ConnectedPlayer.class);
 
-  private static final Ratelimiter<Player> limiter = Ratelimiters.createWithMaxHitLimit(4000, 10);
+  private static final Ratelimiter<Player> limiter = Ratelimiters.createWithMaxHitLimit(1000, 4);
 
   private final Identity identity = new IdentityImpl();
   /**
