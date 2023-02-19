@@ -4,6 +4,7 @@ plugins {
     application
     `set-manifest-impl-version`
     id("com.github.johnrengelman.shadow") version "7.1.0"
+    `maven-publish`
 }
 
 application {

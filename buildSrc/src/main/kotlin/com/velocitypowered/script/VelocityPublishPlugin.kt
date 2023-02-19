@@ -33,9 +33,9 @@ import org.gradle.kotlin.dsl.getByType
 
 class VelocityPublishPlugin : Plugin<Project> {
     override fun apply(target: Project) = target.afterEvaluate {
-        if (target.name != "velocity-proxy") {
+        //if (target.name != "velocity-proxy") {
             configure()
-        }
+        //}
     }
     private fun Project.configure() {
         apply<JavaBasePlugin>()
@@ -45,9 +45,9 @@ class VelocityPublishPlugin : Plugin<Project> {
                 maven {
                     credentials(PasswordCredentials::class.java)
 
-                    name = "paper"
-                    val base = "https://papermc.io/repo/repository/maven"
-                    val releasesRepoUrl = "$base-releases/"
+                    name = "kalya"
+                    val base = "https://repo.kalyamc.net/repository/kalya"
+                    val releasesRepoUrl = "$base-snapshots/"
                     val snapshotsRepoUrl = "$base-snapshots/"
                     setUrl(if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl)
                 }
@@ -60,9 +60,9 @@ class VelocityPublishPlugin : Plugin<Project> {
                         description.set("The modern, next-generation Minecraft server proxy")
                         url.set("https://www.velocitypowered.com")
                         scm {
-                            url.set("https://github.com/PaperMC/Velocity")
-                            connection.set("scm:git:https://github.com/PaperMC/Velocity.git")
-                            developerConnection.set("scm:git:https://github.com/PaperMC/Velocity.git")
+                            url.set("https://github.com/KalyaMC/Velocity")
+                            connection.set("scm:git:https://github.com/KalyaMC/Velocity.git")
+                            developerConnection.set("scm:git:https://github.com/KalyaMC/Velocity.git")
                         }
                     }
                 }
