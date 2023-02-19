@@ -40,7 +40,7 @@ public class LegacyChatHandler implements ChatHandler<LegacyChat> {
 
   @Override
   public void handlePlayerChatInternal(LegacyChat packet) {
-    if (player.isChatRateLimited())
+    if (!player.chatRateLimit())
       return;
 
     MinecraftConnection serverConnection = player.ensureAndGetCurrentServer().ensureConnected();
