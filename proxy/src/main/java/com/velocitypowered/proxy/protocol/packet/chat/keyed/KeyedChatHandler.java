@@ -59,9 +59,6 @@ public class KeyedChatHandler implements
 
   @Override
   public void handlePlayerChatInternal(KeyedPlayerChat packet) {
-    if (!player.chatRateLimit())
-      return;
-
     ChatQueue chatQueue = this.player.getChatQueue();
     EventManager eventManager = this.server.getEventManager();
     PlayerChatEvent toSend = new PlayerChatEvent(player, packet.getMessage());
